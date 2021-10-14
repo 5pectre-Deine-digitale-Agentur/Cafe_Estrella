@@ -85,15 +85,15 @@ Wie schon gesagt, wird jeder Bereich in einer individuellesn Datei programmiert.
 
 Jede Section wird mit “Bereichs-ID”.php betietelt und ist Inhalt einer ACF-Gruppe. Somit hat jeder Bereich eine ähnliche Struktur, die Wie folgt aussieht:
 
-**<?php if( have_rows('section-ID') ): ?>**
+    **<?php if( have_rows('section-ID') ): ?>**
 
-  **<?php while( have_rows('section-ID') ): the_row(); ?>**
+    **<?php while( have_rows('section-ID') ): the_row(); ?>**
 
     **// Dein Code**
 
-  **<?php endwhile; ?>**
-  
-**<?php endif; ?>**
+    **<?php endwhile; ?>**
+
+    **<?php endif; ?>**
 
 Innerhalb der Gruppe ändert sich der Hook von “field” zu “sub_field”. Folglich müssen ACFs über
 
