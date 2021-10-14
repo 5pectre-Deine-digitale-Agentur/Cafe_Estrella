@@ -112,7 +112,7 @@ Dieser Hook kann beliebig häufig wiederholt werden.
 ### 2.5 Page Templates
 Alle Seiten, die ein besonderes Layout erfordern, erhalten ein eigenes Page-Template. Hierzu im Theme Verzeichnis eine neue Datei “Template-Name”.php anlegen. Zusätlich im CSS-Ordner eine datei “Template-Name”.css erstellen. Zusätzlich muss das Template benannt werden. Der Name ist im Header-Tag hinterlegt nach folgendem Muster:
 
-  **<?php /* Template-Name: “Template-Name” */ get_header(); ?>**
+    <?php /* Template-Name: “Template-Name” */ get_header(); ?>
 
 Abschließend muss das Template mit der entsprechende Seite zugewiesen Werden. Hierfür im Dashboard zu Seiten > “deine Seite” navigieren und in der rechten Sidebar unter “Seitenattribute” das eben erstellte Template wählen.
 
@@ -129,32 +129,32 @@ Der footer.php wird nach Designvorgaben erstellt. Zwingend einzubinden sind das 
 ### 2.9 Standardtemplates
 Neben besonderer Templates muss noch ein Standard Template für neue Seiten erstellt werden. Dieses WIrd nach Designvorgaben umgesetzt und muss jeweils das Title-Snippet:
 
-  **<?php the_title(); ?>**
+    <?php the_title(); ?>
 
 und eine Schleife zur Darstellung der im Backend hinterlegten Inhalte vorhanden sein. Diese Schleife hat die Form:
 
-  **<?php if (have_posts()): while (have_posts()) : the_post(); ?>**
+  <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
     <!-- Start of Content -->
-    **<span id="post-<?php the_ID(); ?>" <?php post_class(); ?>>**
+    <span id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
       <!-- Wordpress Content-Hook -->
-      **<?php the_content(); ?>**
+      <?php the_content(); ?>
       <!-- Comment Meta -->
-      **<?php comments_template( '', true ); // Remove if you don't want comments ?>**
+      <?php comments_template( '', true ); // Remove if you don't want comments ?>
       <!-- Edit this Post Link -->
-      **<?php edit_post_link(); ?>**
+      <?php edit_post_link(); ?>
 
-    **</span>**
+    </span>
     <!-- /End of Content -->
-  **<?php endwhile; ?>**
+  <?php endwhile; ?>
 
-  **<?php else: ?>**
+  <?php else: ?>
     <!-- Start of Nothing to Display -->
-    **<span>**
-      **<h2><?php _e( 'Sorry, nothing to display.', 'Spectreblank' ); ?></h2>**
-    **</span>**
+    <span>
+      <h2><?php _e( 'Sorry, nothing to display.', 'Spectreblank' ); ?></h2>
+    </span>
     <!-- End of Nothing to Display -->
-  **<?php endif; ?>**
+  <?php endif; ?>
 
 und ist unter “sections/content.php” zu finden. Die Schleife kann beliebig abgewandelt werden, sodass das Anzeigeformat den Designvorgaben gleicht.
 
