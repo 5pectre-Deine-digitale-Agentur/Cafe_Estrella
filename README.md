@@ -19,7 +19,7 @@ Das Projekt besitzt zusätzlich noch eine globale Repo auf unserem Server. Diese
 “https://Projektname.5pectre.com”
 
 
-##Das Theme
+## Das Theme
 
 Auf der lokalen Wordpress-Instanz wird das 5pectre-Blank installiert. Auf dessen Grundlage finden alle Arbeiten statt.
 
@@ -37,9 +37,9 @@ Das Favicon und die Screenshot.png werden von uns zur verfügung gestellt und si
 
 
 
-##WordPress
+## WordPress
 
-###2.1. Navigation
+### 2.1. Navigation
 Die Navigation ist von Wordpress zu übernehmen. Es werden im Grunde 3 Navigationsmenüs verwendet (Extra-Nav, Main-Nav, und Legal-Nav). Weitere Navigationen sind nicht händisch zu programmieren, sondern werden immer über die functions.php erstellt. Ausnahme hierfür sind menüs, die als Onpage-Filter dienen. Diese können mit folgenden Snippets auf der Seite abgerufen werden:
 
 Main-Nav
@@ -53,11 +53,11 @@ Extra-Nav
 
 Weitere Menüs werden unter Rücksprache in der functions.php erstellt.
 
-###2.2 Custom Post Types
+### 2.2 Custom Post Types
 Grundlegend werden CPT’s für Blogbeiträge und die Testimonials vor geliefert. Die indexierung weitere Custom Post Types sollte vorher mit uns abgesprochen werden.
 
 
-###2.3. Advanced Custom Fields
+### 2.3. Advanced Custom Fields
 Alle Inhalte, sind derart einzubinden, dass diese im Wordpress Backend auf der entsprechende Seite austauschbar sind. Dazu gehören:
 
 - Textinhalte
@@ -80,7 +80,7 @@ Nun Können wir individuelle Felder mit den entsprechenden Regeln festlegen. Wer
 
   **<?php the_field(‘ “Feldname” ’); ?>**
 
-###2.4 Sections
+### 2.4 Sections
 Wie schon gesagt, wird jeder Bereich in einer individuellesn Datei programmiert. Dies bietet uns bessere Möglichkeiten der Zusammenarbeit und kurze Reaktionszeiten für die Behebung von Bugs.
 
 Jede Section wird mit “Bereichs-ID”.php betietelt und ist Inhalt einer ACF-Gruppe. Somit hat jeder Bereich eine ähnliche Struktur, die Wie folgt aussieht:
@@ -109,24 +109,24 @@ abgerufen werden. Um die Bereich abzurufen, müssen die Zieldateien des Hooks im
 Dieser Hook kann beliebig häufig wiederholt werden.
 
 
-###2.5 Page Templates
+### 2.5 Page Templates
 Alle Seiten, die ein besonderes Layout erfordern, erhalten ein eigenes Page-Template. Hierzu im Theme Verzeichnis eine neue Datei “Template-Name”.php anlegen. Zusätlich im CSS-Ordner eine datei “Template-Name”.css erstellen. Zusätzlich muss das Template benannt werden. Der Name ist im Header-Tag hinterlegt nach folgendem Muster:
 
   **<?php /* Template-Name: “Template-Name” */ get_header(); ?>**
 
 Abschließend muss das Template mit der entsprechende Seite zugewiesen Werden. Hierfür im Dashboard zu Seiten > “deine Seite” navigieren und in der rechten Sidebar unter “Seitenattribute” das eben erstellte Template wählen.
 
-###2.6 Startseite
+### 2.6 Startseite
 Die Startseite wird als front-page.php ausgegeben. Um die Startseite auch als Startseite zu indexieren, muss im Dashboard unter Einstellungen > Lesen “eine statische Startseite” ausgewählt werden. Dort können dann, sofern vorhanden, die Beitragsseite und die Startseite festgelegt werden.
 
-###2.7 Header
+### 2.7 Header
 Die header.php im blank-Theme besitzt bereits alle relevanten Tags und Attribute. Sollten Skripte von Drittanbietern eingebunden werden ist dies natürlich unter Rücksprache zu tun. Neben den standardmäßig verbauten Headerskripten wird zusätzlich das Navigationsmenü in der header.php hinterlegt und der Body-Tag eingeleitet.
 Aktuell befindet sich eine rudimentäre Navigation im Blank-Theme. Diese muss durch das im Design unter “Navigation” angegebene Menü ersetzt werden.
 
-###2.8 Footer
+### 2.8 Footer
 Der footer.php wird nach Designvorgaben erstellt. Zwingend einzubinden sind das Legal-Menu mit Anschrift und Kontaktdaten des Unternehmens. Der Copyright-Disclaymer und die Credentials sind bereits in der footer.php verbaut und können nach Vorgabe im Design umgestaltet werden
 
-###2.9 Standardtemplates
+### 2.9 Standardtemplates
 Neben besonderer Templates muss noch ein Standard Template für neue Seiten erstellt werden. Dieses WIrd nach Designvorgaben umgesetzt und muss jeweils das Title-Snippet:
 
   **<?php the_title(); ?>**
@@ -158,7 +158,7 @@ und eine Schleife zur Darstellung der im Backend hinterlegten Inhalte vorhanden 
 
 und ist unter “sections/content.php” zu finden. Die Schleife kann beliebig abgewandelt werden, sodass das Anzeigeformat den Designvorgaben gleicht.
 
-###2.10 404-Seite
+### 2.10 404-Seite
 Die 404-Seite wird nach Designvorgaben umgesetzt. Sollte im Design keine 404-Seite vorgegeben sein, so ist die nach belieben zu gestalten. Hierbei bleiben aber Grundlegende Design-Regeln in Kraft. Zwingend vorhanden müssen sein:
 
 Ein Redirect-Link zurück zur Startseite
@@ -166,7 +166,7 @@ Die Navigation und somit die header.php
 Der Footer mit den rechtlich bindenden Inhalten für den Verbraucher
 Eine 404-Notice
 
-###2.11 Custom-Post-Types
+### 2.11 Custom-Post-Types
 
 Die 5pectre-Blank hat einen vorgefertigten Custom-Post-Type der in der functions.php des Themes umbenannt oder kopiert und dupliziert werden kann.
 
@@ -189,7 +189,7 @@ Grundsätzlich sollte jede Section eine ID erhalten und die Wrapper in der .css 
 
 Sollte dir auffallen, dass weitere CSS-Elemte nützlich sein können, teile uns dies bitte kurz mit. Wir möchten dir und deinen Kollegen, die Erfahrung so angenehm wie möglich gestalten und arbeiten ständig daran, dieses Erlebnis zu verbessern.
 
-###JavaScript
+### JavaScript
 Für die Umsetzung einzelner Funktionen in Javascript haben wir drei vorgefertigte dateien, die über die functions.php indexiert werden. Dabei wird die “scripts.js” im header eingebunden, während die “animations.js” und die “footerScripts.js” im footer eingebunden werden.
 
 Funktionen sollten grundsätzlich in der “footerScripts.js” verfasst werden. Die einzige ausnahme sind Animationen, die in der “animations.js” definiert werden und DOM relevante Inhalte (Tracking), die in der “scripts.js” einzufügen sind.
