@@ -21,7 +21,7 @@ Das Projekt besitzt zusätzlich noch eine globale Repo auf unserem Server. Diese
 
 ## Das Theme
 
-Auf der lokalen Wordpress-Instanz wird das 5pectre-Blank installiert. Auf dessen Grundlage finden alle Arbeiten statt.
+Auf der lokalen WordPress-Instanz wird das 5pectre-Blank installiert. Auf dessen Grundlage finden alle Arbeiten statt.
 
 Die Ordnerstruktur ist nach Dateityp und Dateizweck gegliedert. Die Dateien im Hauptverzeichnis sind die Front-End-Ausgabemedien und werden durch die im “sections”-Ordner befindlichen Bereich generiert. Jeder dort befindliche Bereich besitzt eine eigene .sass-Datei im “sass”-Ordner. Diese bildet jeweils den Style des Bereichs.
 
@@ -40,7 +40,7 @@ Das Favicon und die Screenshot.png werden von uns zur verfügung gestellt und si
 ## WordPress
 
 ### 2.1. Navigation
-Die Navigation ist von Wordpress zu übernehmen. Es werden im Grunde 3 Navigationsmenüs verwendet (Extra-Nav, Main-Nav, und Legal-Nav). Weitere Navigationen sind nicht händisch zu programmieren, sondern werden immer über die functions.php erstellt. Ausnahme hierfür sind menüs, die als Onpage-Filter dienen. Diese können mit folgenden Snippets auf der Seite abgerufen werden:
+Die Navigation ist von WordPress zu übernehmen. Es werden im Grunde 3 NavigationsMenüs verwendet (Extra-Nav, Main-Nav, und Legal-Nav). Weitere Navigationen sind nicht händisch zu programmieren, sondern werden immer über die functions.php erstellt. Ausnahme hierfür sind Menüs, die als Onpage-Filter dienen. Diese können mit folgenden Snippets auf der Seite abgerufen werden:
 
 Main-Nav
 **<?php wp_nav_menu(array( 'theme_location' => 'main' )); ?>**
@@ -54,11 +54,11 @@ Extra-Nav
 Weitere Menüs werden unter Rücksprache in der functions.php erstellt.
 
 ### 2.2 Custom Post Types
-Grundlegend werden CPT’s für Blogbeiträge und die Testimonials vor geliefert. Die indexierung weitere Custom Post Types sollte vorher mit uns abgesprochen werden.
+Grundlegend werden CPT’s für Blogbeiträge und die Testimonials vorgeliefert. Die Indexierung weitere Custom Post Types sollte vorher mit uns abgesprochen werden.
 
 
 ### 2.3. Advanced Custom Fields
-Alle Inhalte, sind derart einzubinden, dass diese im Wordpress Backend auf der entsprechende Seite austauschbar sind. Dazu gehören:
+Alle Inhalte, sind derart einzubinden, dass diese im WordPress Backend auf der entsprechenden Seite austauschbar sind. Dazu gehören:
 
 - Textinhalte
 - Bilder
@@ -153,7 +153,7 @@ und eine Schleife zur Darstellung der im Backend hinterlegten Inhalte vorhanden 
 
     <!-- Start of Content -->
       <span id="post-<?php the_ID(); ?>" <?php post_class(); ?>>  
-      <!-- Wordpress Content-Hook -->
+      <!-- WordPress Content-Hook -->
         <?php the_content(); ?>
       <!-- Comment Meta -->
         <?php comments_template( '', true ); // Remove if you don't want comments ?>  
@@ -184,7 +184,7 @@ Eine 404-Notice
 
 ### 2.11 Custom-Post-Types
 
-Die 5pectre-Blank hat einen vorgefertigten Custom-Post-Type der in der functions.php des Themes umbenannt oder kopiert und dupliziert werden kann.
+Die 5pectre-Blank hat einen vorgefertigten Custom-Post-Type der in der functions.php des Themes umbenannt, kopiert und dupliziert werden kann.
 
 Grundsätzlich werden Inhaltsblöcke oder Elemente, die für den Nutzer später reproduzierbar sein sollen als “CPT” angelegt werden. Alternativ bietet sich hier auch der Gebrauch der ACF an. Was genau du davon wählst bleibt dir überlassen. Dennoch gilt die Faustregel:
 
