@@ -88,7 +88,7 @@ Jede Section wird mit “Bereichs-ID”.php betietelt und ist Inhalt einer ACF-G
   **<?php if( have_rows('section-ID') ): ?>**
     **<?php while( have_rows('section-ID') ): the_row(); ?>**
 
-	   // Dein Code
+	   **// Dein Code**
 
     **<?php endwhile; ?>**
   **<?php endif; ?>**
