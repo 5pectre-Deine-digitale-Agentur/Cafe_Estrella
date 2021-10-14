@@ -133,28 +133,28 @@ Neben besonderer Templates muss noch ein Standard Template für neue Seiten erst
 
 und eine Schleife zur Darstellung der im Backend hinterlegten Inhalte vorhanden sein. Diese Schleife hat die Form:
 
-  <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+    <?php if (have_posts()): while (have_posts()) : the_post(); ?>  
 
     <!-- Start of Content -->
-    <span id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+      <span id="post-<?php the_ID(); ?>" <?php post_class(); ?>>  
       <!-- Wordpress Content-Hook -->
-      <?php the_content(); ?>
+        <?php the_content(); ?>
       <!-- Comment Meta -->
-      <?php comments_template( '', true ); // Remove if you don't want comments ?>
+        <?php comments_template( '', true ); // Remove if you don't want comments ?>  
       <!-- Edit this Post Link -->
-      <?php edit_post_link(); ?>
+        <?php edit_post_link(); ?>  
 
-    </span>
+        </span>
     <!-- /End of Content -->
-  <?php endwhile; ?>
+    <?php endwhile; ?>  
 
-  <?php else: ?>
+    <?php else: ?>  
     <!-- Start of Nothing to Display -->
-    <span>
-      <h2><?php _e( 'Sorry, nothing to display.', 'Spectreblank' ); ?></h2>
-    </span>
+      <span>  
+        <h2><?php _e( 'Sorry, nothing to display.', 'Spectreblank' ); ?></h2>
+        </span>
     <!-- End of Nothing to Display -->
-  <?php endif; ?>
+    <?php endif; ?>
 
 und ist unter “sections/content.php” zu finden. Die Schleife kann beliebig abgewandelt werden, sodass das Anzeigeformat den Designvorgaben gleicht.
 
@@ -176,16 +176,16 @@ Grundsätzlich werden Inhaltsblöcke oder Elemente, die für den Nutzer später 
 
 ## 3 Programmiervorgaben
 
-Jeder Bereich besteht aus einer <section> und einem <div class=”wrapper”>.
+Jeder Bereich besteht aus einer Section und einem Wrapper.
 Grundsätzlich sollte jede Section eine ID erhalten und die Wrapper in der .css Datei für die gesamte Seite vordefiniert werden. Es ergibt sich somit eine Struktur wie folgt…
 
-  **<section id=”beispiel-bereich”>**
-    **<div class=”wrapper”>**
-    .
-    .
-    .
-    **</div>**
-  **</section>**
+    <section id=”beispiel-bereich”>
+      <div class=”wrapper”>
+      .
+      .
+      .
+      </div>
+    </section>
 
 Sollte dir auffallen, dass weitere CSS-Elemte nützlich sein können, teile uns dies bitte kurz mit. Wir möchten dir und deinen Kollegen, die Erfahrung so angenehm wie möglich gestalten und arbeiten ständig daran, dieses Erlebnis zu verbessern.
 
