@@ -88,24 +88,23 @@ Jede Section wird mit “Bereichs-ID”.php betietelt und ist Inhalt einer ACF-G
     <?php if( have_rows('section-ID') ): ?>
       <?php while( have_rows('section-ID') ): the_row(); ?>
 
-        // Dein Code**
+        // Dein Code
 
       <?php endwhile; ?>
-
     <?php endif; ?>
 
 Innerhalb der Gruppe ändert sich der Hook von “field” zu “sub_field”. Folglich müssen ACFs über
 
-  **<?php the_sub_field(‘ “Feldname” ’); ?>**
+    <?php the_sub_field(‘ “Feldname” ’); ?>
 
 abgerufen werden. Um die Bereich abzurufen, müssen die Zieldateien des Hooks im Code in der darzustellenden Reihenfolge angegeben werden. Die Geschieht über den folgenden Zielcode:
 
-  **<?php**
-  **include ‘sections/section-ID.php’;**
-  .
-  .
-  .
-  **?>**
+    <?php
+    include ‘sections/section-ID.php’;
+    .
+    .
+    .
+    ?>
 
 Dieser Hook kann beliebig häufig wiederholt werden.
 
