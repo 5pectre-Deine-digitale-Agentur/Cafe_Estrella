@@ -1,0 +1,56 @@
+*, *:before, *:after
+  box-sizing: border-box
+
+html
+  height: 100%
+
+  body.error404
+    background: url(https://i.imgur.com/CZdBKjO.gif) no-repeat center center fixed
+    background-size: cover
+    background-color: $color2
+    height: 100%
+
+    main.main
+      height: 100vh
+
+    .text-wrapper
+      height: 100%
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+
+    .title
+      font-size: 9em
+      font-weight: 700
+      color: $white
+      position: relative
+
+
+    .subtitle
+      font-size: 40px
+      font-weight: 700
+      color: $white
+      position: relative
+
+    .subtitle:after, .title:after
+      content: attr(data-content)
+      position: absolute
+      left: 2px
+      text-shadow: -1px 0 red
+      top: 0
+      color: $white
+      overflow: hidden
+      clip: rect(0,900px,0,0)
+      animation: noise-anim 2s infinite linear alternate-reverse
+
+    .subtitle:before, .title:before
+      content: attr(data-content)
+      position: absolute
+      left: -2px
+      text-shadow: 1px 0 blue
+      top: 0
+      color: $white
+      overflow: hidden
+      clip: rect(0,900px,0,0)
+      animation: noise-anim-2 3s infinite linear alternate-reverse
