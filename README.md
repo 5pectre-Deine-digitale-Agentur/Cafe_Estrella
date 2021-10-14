@@ -69,16 +69,32 @@ Der Webseitenbetreiber soll am Ende in der Lage sein, ohne Programmieraufwand In
 Hierzu unter dem Dashboard auf Eigene Felder Navigieren und dort für jeden Bereich mit eigenem Template im “sections”-Ordner eine Feldgruppe erstellen und diese nach der Bereichs-ID benennen. Grundsätzlich sollte jeder Bereich eine eigene Feldgruppe besitzen. Anschließend fügen wir unten Konditionen für die Ausgabe der Felder hinzu.
 
 Für die Startseite geben wir folgende Regeln an:
-  **Für ‘Seitentyp’ ‘ist gleich’ ‘Startseite’**
+    Für ‘Seitentyp’ ‘ist gleich’ ‘Startseite’
 
 Für Seiten mit spezifischen Templates:
-  **Für ‘Seitentemplate’ ‘ist gleich’ ‘Template-name’**
+    Für ‘Seitentemplate’ ‘ist gleich’ ‘Template-name’
 
 Die “und” und “oder” Operatoren ermöglichen uns die wiederbenutzung von Bereich und Feldgruppen. Wenn ein Bereich auf verschiedenen Seiten vorkommt, muss dies auch in den ACF berücksichtigt werden.
 
 Nun Können wir individuelle Felder mit den entsprechenden Regeln festlegen. Werden im entsprechenden Template mit folgendem PHP-Snippet eingefügt :
 
-  **<?php the_field(‘ “Feldname” ’); ?>**
+    <?php the_field(‘Feldname’, ID); ?>
+
+Diese Funktion ist besonders nützlich, wenn Feldeingaben von anderen Seite geholt werden müssen. Dabei kann die Seiten-ID als Parameter übergeben werden, um die Feldinformationen einzuholen.
+
+Gerade bei Multisite Setups ist dies allerdings nur schwer durch generische Angaben der ID möglich. Deshalb holen wir uns die ID der Navigation über das folgende Snippet und geben den Parameter direkt in das Feld.
+
+    <?php
+    $term = get_term_by('name', 'main', 'nav_menu');
+    $menu_id = $term->term_id;
+    $menu = wp_get_nav_menu_object( $menu_id );
+    ?>
+
+Diese Funktion ist besonders nützlich, wenn Feldeingaben von anderen Seite geholt werden müssen. Dabei kann die Seiten-ID als Parameter übergeben werden, um die Feldinformationen einzuholen.
+
+Felder wie etwa Logos sind im Menü zu indexieren. Hierfür muss die ID des jeweiligen Menüs auch als Parameter in den Felder angegeben werden :
+
+    <?php the_field('Feldname')>
 
 ### 2.4 Sections
 Wie schon gesagt, wird jeder Bereich in einer individuellesn Datei programmiert. Dies bietet uns bessere Möglichkeiten der Zusammenarbeit und kurze Reaktionszeiten für die Behebung von Bugs.
@@ -190,12 +206,12 @@ Grundsätzlich sollte jede Section eine ID erhalten und die Wrapper in der .css 
 Sollte dir auffallen, dass weitere CSS-Elemte nützlich sein können, teile uns dies bitte kurz mit. Wir möchten dir und deinen Kollegen, die Erfahrung so angenehm wie möglich gestalten und arbeiten ständig daran, dieses Erlebnis zu verbessern.
 
 ### JavaScript
-Für die Umsetzung einzelner Funktionen in Javascript haben wir drei vorgefertigte dateien, die über die functions.php indexiert werden. Dabei wird die “scripts.js” im header eingebunden, während die “animations.js” und die “footerScripts.js” im footer eingebunden werden.
+Für die Umsetzung einzelner Funktionen in Javascript haben wir drei vorgefertigte dateien, die über die functions.php indexiert werden. Dabei wird die “head.js” im header eingebunden, während die “animations.js” und die “footer.js” im footer eingebunden werden.
 
 Funktionen sollten grundsätzlich in der “footerScripts.js” verfasst werden. Die einzige ausnahme sind Animationen, die in der “animations.js” definiert werden und DOM relevante Inhalte (Tracking), die in der “scripts.js” einzufügen sind.
 
 Neben den eigenen Scripten indexieren wir auch externe JavaScript-Libaries um euch das Leben etwas leichter zu machen. Hier findest du eine Auflistung dieser:
 
-jQuery (kennt ihr...)
-Fontawesome (ermöglicht das Einfügen von Icons als Font)
-Anime.js (Framework für Animationen)
+jQuery
+Fontawesome
+Anime.js
