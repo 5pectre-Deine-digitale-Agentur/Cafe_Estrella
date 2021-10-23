@@ -1,19 +1,40 @@
 <?php get_header(); ?>
 
 	<main role="main">
-		<!-- section -->
-		<section>
+		<?php if( have_rows('hero','option') ): ?>
+		  <?php while( have_rows('hero','option') ): the_row(); ?>
 
-			<h1><?php _e( 'Archives', 'Spectreblank' ); ?></h1>
+		    <section id="hero" style=" background:
+		    <?php if(get_sub_field('background')): ?>
+		      url(<?php echo the_sub_field('background'); ?>)
+		    <?php else: ?>
+		      #000
+		    <?php endif; ?>; background-size: cover; background-position: center;">
+		      <div class="container">
+		        <div class="row">
+		          <div class="col-12">
+		            <h1 class="h1"><?php the_title(); ?></h1>
+		            <span class="h4"><?php echo the_sub_field('subtitle'); ?></span>
+		          </div>
+		        </div>
+		      </div>
+		    </section>
 
-			<?php get_template_part('loop'); ?>
-
-			<?php get_template_part('pagination'); ?>
-
-		</section>
-		<!-- /section -->
+		  <?php endwhile; ?>
+		<?php endif; ?>
+		<div class="container">
+			<div class="row">
+				<div class="col-4 sidebar__container">
+					<?php get_sidebar(); ?>
+				</div>
+				<div class="col-8">
+					<section>
+						<?php get_template_part('templates/loop'); ?>
+						<?php get_template_part('templates/pagination'); ?>
+					</section>
+				</div>
+			</div>
+		</div>
 	</main>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

@@ -1,44 +1,42 @@
 <?php
 // Hier werden die Custom Post Types indexiert. Einfach freischalten und Argumente austauschen.
 
-// function register_themepost() {
-//     $labels = array(
-//         'name' => _x( 'Themes', 'my_custom_post','custom' ),
-//         'singular_name' => _x( 'Theme', 'my_custom_post', 'custom' ),
-//         'add_new' => _x( 'Add New', 'my_custom_post', 'custom' ),
-//         'add_new_item' => _x( 'Add New ThemePost', 'my_custom_post', 'custom' ),
-//         'edit_item' => _x( 'Edit ThemePost', 'my_custom_post', 'custom' ),
-//         'new_item' => _x( 'New ThemePost', 'my_custom_post', 'custom' ),
-//         'view_item' => _x( 'View ThemePost', 'my_custom_post', 'custom' ),
-//         'search_items' => _x( 'Search ThemePosts', 'my_custom_post', 'custom' ),
-//         'not_found' => _x( 'No ThemePosts found', 'my_custom_post', 'custom' ),
-//         'not_found_in_trash' => _x( 'No ThemePosts found in Trash', 'my_custom_post', 'custom' ),
-//         'parent_item_colon' => _x( 'Parent ThemePost:', 'my_custom_post', 'custom' ),
-//         'menu_name' => _x( 'Themes Posts', 'my_custom_post', 'custom' ),
-//     );
-//
-//     $args = array(
-//         'labels' => $labels,
-//         'hierarchical' => false,
-//         'description' => 'Custom Theme Posts',
-//         'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'post-formats', 'custom-fields' ),
-//         'taxonomies' => array( 'post_tag','themes_categories'),
-//         'show_ui' => true,
-//         'show_in_menu' => true,
-//         'menu_position' => 5,
-//         'menu_icon' => get_stylesheet_directory_uri() . '/functions/panel/images/catchinternet-small.png',
-//         'show_in_nav_menus' => true,
-//         'publicly_queryable' => true,
-//         'exclude_from_search' => false,
-//         'query_var' => true,
-//         'can_export' => true,
-//         'rewrite' => array( 'slug' => 'themes/%themes_categories%', 'with_front' => FALSE ),
+// function create_post_type_Spectre()
+// {
+//     register_taxonomy_for_object_type('category', 'Spectre-blank'); // Register Taxonomies for Category
+//     register_taxonomy_for_object_type('post_tag', 'Spectre-blank');
+//     register_post_type('Spectre-blank', // Register Custom Post Type
+//         array(
+//         'labels' => array(
+//             'name' => __('Custom Post Type', 'Spectreblank'), // Rename these to suit
+//             'singular_name' => __('Custom Post Type', 'Spectreblank'),
+//             'add_new' => __('Add New', 'Spectreblank'),
+//             'add_new_item' => __('Add New Custom Post Type', 'Spectreblank'),
+//             'edit' => __('Edit', 'Custom Post Type'),
+//             'edit_item' => __('Edit Custom Post Type', 'Spectreblank'),
+//             'new_item' => __('New Custom Post Type', 'Spectreblank'),
+//             'view' => __('View Custom Post Type', 'Spectreblank'),
+//             'view_item' => __('View Custom Post Type', 'Spectreblank'),
+//             'search_items' => __('Search Custom Post Type', 'Spectreblank'),
+//             'not_found' => __('No Custom Post Type found', 'Spectreblank'),
+//             'not_found_in_trash' => __('No Custom Post Type found in Trash', 'Spectreblank')
+//         ),
 //         'public' => true,
-//         'has_archive' => 'themes',
-//         'capability_type' => 'post'
-//     );
-//     register_post_type( 'themes', $args ); // max 20 character cannot contain capital letters and spaces
+//         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+//         'has_archive' => true,
+//         'supports' => array(
+//             'title',
+//             'editor',
+//             'excerpt',
+//             'thumbnail'
+//         ), // Go to Dashboard Custom Spectre Blank post for supports
+//         'can_export' => true, // Allows export in Tools > Export
+//         'taxonomies' => array(
+//             'post_tag',
+//             'category'
+//         ) // Add Category and Post Tags support
+//     ));
 // }
-// add_action( 'init', 'register_themepost', 20 );
+// add_action( 'init', 'create_post_type_Spectre', 20 );
 
 ?>

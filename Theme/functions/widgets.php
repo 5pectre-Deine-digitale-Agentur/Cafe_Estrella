@@ -1,14 +1,26 @@
 <?php
-// DIESER BEREICH IST FÜR DICH UNINTERESSANT
+if (function_exists('register_sidebar'))
+{
+    // DEFINIERE WIDGETBEREICH 1
+    register_sidebar(array(
+        'name' => __('Widget Area 1', 'Spectreblank'),
+        'description' => __('Description for this widget-area...', 'Spectreblank'),
+        'id' => 'widget-area-1',
+        'before_widget' => '<div id="%1$s" class="%2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>'
+    ));
 
-  // Remove wp_head() injected Recent Comment styles
-  function my_remove_recent_comments_style()
-  {
-      global $wp_widget_factory;
-      remove_action('wp_head', array(
-          $wp_widget_factory->widgets['WP_Widget_Recent_Comments'],
-          'recent_comments_style'
-      ));
-  }
-  add_action('widgets_init', 'my_remove_recent_comments_style');
+    // DEFINIERE WIDGETBEREICH 2
+    register_sidebar(array(
+        'name' => __('Widget Area 2', 'Spectreblank'),
+        'description' => __('Description for this widget-area...', 'Spectreblank'),
+        'id' => 'widget-area-2',
+        'before_widget' => '<div id="%1$s" class="%2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>'
+    ));
+}
 ?>

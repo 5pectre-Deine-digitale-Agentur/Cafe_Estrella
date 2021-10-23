@@ -19,6 +19,16 @@
 
 		<?php wp_head(); ?>
 
+		<!-- Conditionizr -->
+		<script type="text/javascript">
+		// conditionizr.com
+		// configure environment tests
+		conditionizr.config({
+			assets: '<?php echo esc_url( get_template_directory_uri() ); ?>',
+			tests: {}
+		});
+		</script>
+
 	</head>
 	<body <?php body_class(); ?>>
-		<?php include 'sections/ui/navigation.php';?>
+		<?php include 'sections/01_ui/navigation.php';?>

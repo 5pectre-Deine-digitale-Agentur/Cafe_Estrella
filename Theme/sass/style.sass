@@ -8,32 +8,31 @@
   Tags: 5pectre, HTML5, CSS3, PHP, ACF, CF7
   */
 
-// Source
-@import 'variables'
-@import 'breakpoints'
-@import 'basics'
-@import 'keyframes'
-@import 'head'
-
-// UI
-@import 'ui/navigation'
-@import 'ui/footer'
-@import 'ui/button'
-
-// Hero
-@import 'Hero/hero-2.sass'
-@import 'Hero/hero-3.sass'
-@import 'Hero/hero-8.sass'
-@import 'Hero/hero-9.sass'
-
-// Sample Content
-@import 'content/slider.sass'
-@import 'content/gallery.sass'
-@import 'content/accordeon.sass'
-@import 'content/content'
-@import 'content/404'
-
 //Import Fonts
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap')
+@import '01_global/fonts'
+
+// Global Styles
+@import '01_global/variables.sass'
+@import '01_global/breakpoints'
+@import '01_global/basics'
+@import '01_global/keyframes'
+@import '01_global/button'
+@import '01_global/input'
+
+// Local Styles
+@import '02_local/navigation.sass'
+@import '02_local/loop'
+@import '02_local/archive'
+@import '02_local/slider.sass'
+@import '02_local/gallery.sass'
+@import '02_local/accordeon.sass'
+@import '02_local/content'
+@import '02_local/404'
+@import '02_local/footer'
+
+// Sections
+@import '03_sections/hero'
+@import '03_sections/map'
+// Add the Styles for your Section right here
 
 // External Libaries

@@ -31,7 +31,7 @@
   {
       register_nav_menus(array(
           'main' => __('Main Menu', 'Spectreblank'),
-          'legal' => __('Rechtliches Menu', 'Spectreblank'),
+          'footer' => __('Footer Menu', 'Spectreblank'),
           'extra' => __('Extra Menu', 'Spectreblank'),
           // 'menu' => __('Menu Name', 'Spectreblank'),
       ));
