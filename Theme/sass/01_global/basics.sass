@@ -24,17 +24,47 @@ h1,h2,h3,h4,h5,h6
   &.h1
     font-size: 120pt
 
+    @include lg
+      font-size: 10vw
+
+    @include sm
+      font-size: 10vh
+
   &.h2
     font-size: 50pt
+
+    @include lg
+      font-size: 5vw
+
+    @include sm
+      font-size: 5vh
 
   &.h3
     font-size: 28pt
 
+    @include lg
+      font-size: 3vw
+
+    @include sm
+      font-size: 4vh
+
   &.h4
     font-size: 16pt
 
+    @include lg
+      font-size: 2vw
+
+    @include sm
+      font-size: 2vh
+
   &.h5
     font-size: 24pt
+
+    @include lg
+      font-size: 1vw
+
+    @include sm
+      font-size: 1vh
 
   &.h6
     font-size: 12pt

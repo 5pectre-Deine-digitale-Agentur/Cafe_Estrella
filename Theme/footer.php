@@ -10,7 +10,7 @@ $footer_menu = wp_get_nav_menu_object( $footer_id );
 				<?php if ( have_rows( 'company_info', 'options' ) ):
 					while ( have_rows('company_info', 'options' ) ) : the_row(); ?>
 
-						<div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+						<div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
 							<div class="hours">
 								<div class="background" style="background: url(<?php echo the_sub_field('background'); ?>); background-position: center; background-size: cover;">
 								</div>
@@ -32,7 +32,7 @@ $footer_menu = wp_get_nav_menu_object( $footer_id );
 								</ul>
 							</div>
 						</div>
-						<div class="col-xxl-6 col-xl-6 col-lg-4 col-md-4 col-sm-12 col-12">
+						<div class="col-xxl-6 col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12">
 
 						<div class="information">
 							<h3 class="h3">About</h3>
@@ -64,7 +64,7 @@ $footer_menu = wp_get_nav_menu_object( $footer_id );
 					</div>
 				<?php endwhile;?>
 			<?php endif; ?>
-				<div class="col-xxl-2 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+				<div class="col-xxl-2 col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
 					<div class="sitemap">
 						<h3 class="h3">Quicklinks</h3>
 						<?php wp_nav_menu(array( 'theme_location' => 'footer' )); ?>

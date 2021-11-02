@@ -1,9 +1,48 @@
 .splide
+  &.testimonials .splide__slide
+    padding-bottom: 50vh
+
+    .slide__content
+      .h3
+        margin-bottom: 25px
+        width: 100%
+        display: inline-block
+        color: $white
+        text-align: center
+
+      .h4
+        width: 100%
+        display: inline-block
+        color: $white
+        text-align: center
+
   .splide__slide
     height: 0
-    padding-bottom: 33%
+    padding-bottom: 15%
     overflow: hidden
-    background: black
+    position: relative
+
+    @include lg
+      padding-bottom: 21%
+
+    @include md
+      padding-bottom: 33%
+
+    @include sm
+      padding-bottom: 65%
+
+    &::before
+      content: ""
+      background: black
+      width: 100%
+      height: 100%
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      position: absolute
+      opacity: .5
+
 
     .background__image
       width: 100%
@@ -21,7 +60,7 @@
         transform: translate(-50%,-50%)
         width: 100%
         height: auto
-        opacity: .5
+        opacity: 1
 
   .slide__content
     position: absolute

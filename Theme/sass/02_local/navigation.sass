@@ -8,16 +8,79 @@
   position: fixed
   z-index: 100
 
+  @include lg
+    padding: 5px 0
+
+  &.desktop
+    display: block
+
+    @include lg
+      display: none
+
+  &.mobile
+    display: none
+
+    @include lg
+      display: block
+
   .container
     .row
       .nav-img-col
         display: flex
         flex-direction: row
         justify-content: center
+        align-items: center
 
-        .logo
-          max-height: 100%
-          height: 70px
+        @include lg
+          justify-content: space-between
+          align-items: center
+
+        a
+          @include lg
+            height: fit-content
+          .logo
+            max-height: 100%
+            height: 70px
+
+        // .burger
+        //   position: absolute
+        //   right: 5px
+        //   top: 5px
+        //   bottom: 5px
+        //   height: 100px
+        //   width: 100px
+        //
+        //   .lines
+        //     position: absolute
+        //     top: 50%
+        //     left: 50%
+        //     transform: translate(-50%,-50%)
+        //     background: $color1
+        //     height: 5px
+        //     width: 50px
+        //     border-radius: 10px
+        //
+        //     &::after
+        //       content: ""
+        //       position: absolute
+        //       top: calc(50% + 15px)
+        //       left: 50%
+        //       transform: translate(-50%,-50%)
+        //       background: $color1
+        //       height: 5px
+        //       width: 50px
+        //       border-radius: 10px
+        //
+        //     &::before
+        //       content: ""
+        //       position: absolute
+        //       top: calc(50% - 15px)
+        //       left: 50%
+        //       transform: translate(-50%,-50%)
+        //       background: $color1
+        //       height: 5px
+        //       width: 50px
+        //       border-radius: 10px
 
       .menu-item-col
         display: flex
@@ -54,3 +117,213 @@
       text-transform: uppercase
       color: $color1
       font-size: 16pt
+
+.ham
+  z-index: 500
+  -webkit-tap-highlight-color: transparent
+  transition: transform 400ms
+  -moz-user-select: none
+  -webkit-user-select: none
+  -ms-user-select: none
+  user-select: none
+  margin-bottom: 0 !important
+
+.hamRotate.active
+  transform: rotate(45deg)
+
+.hamRotate180.active
+  transform: rotate(180deg)
+
+.ham.active
+  .top
+    stroke-dasharray: 10 160
+
+.line
+  fill: none
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms
+  stroke: $color2
+  stroke-width: 5
+  stroke-linecap: round
+
+.ham
+  .top
+    stroke-dasharray: 20 160
+
+  .middle
+    stroke-dasharray: 40 142
+    transform-origin: 50%
+    transition: transform 400ms
+
+  .bottom
+    stroke-dasharray: 20 85
+    transform-origin: 50%
+    transition: transform 400ms, stroke-dashoffset 400ms
+
+  &.active
+    .top
+      stroke-dashoffset: -64px
+
+    .middle
+      //stroke-dashoffset: -20px
+      transform: rotate(90deg)
+
+    .bottom
+      stroke-dashoffset: -64px
+
+#nav-window
+  height: calc(100vh - 90px)
+  position: fixed
+  z-index: 50
+  top: 100vh
+  left: 0
+  right: 0
+  background: $color1
+  transition: .3s
+  display: flex
+  flex-direction: column
+  justify-content: center
+
+  &.active
+    top: 90px
+    transition: .3s
+
+  .hours
+    width: 100%
+    height: fit-content
+    position: relative
+    overflow: hidden
+    padding: 0 5px
+
+    .background
+      position: absolute
+      width: 100%
+      height: 100%
+      top: 50%
+      left: 50%
+      transform: translate(-50%,-50%)
+      z-index: 0
+      opacity: .5
+
+    .h3
+      color: $white
+      margin-bottom: 50px
+      position: relative
+      z-index: 2
+
+    .days
+      width: 100%
+      height: 100%
+      list-style: none
+      margin: 0
+      padding: 0
+      display: flex
+      flex-direction: column
+      position: relative
+      z-index: 2
+
+      .day
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        margin: 15px 0
+        padding: 0
+
+        .spacer
+          height: 1px
+          width: 100%
+          position: relative
+          align-self: flex-end
+          background: $color1
+
+        .h4
+          color: $white
+          display: block
+          margin: 0
+          white-space: pre
+
+          &.day
+            margin-right: 5px
+
+          &.time
+            width: fit-content
+            text-align: right
+            margin-left: 5px
+
+  .panel
+    padding: 0 18px
+    width: 100%
+    max-height: 0
+    overflow: hidden
+    transition: max-height 0.2s ease-out
+
+    p, a
+      color: $white
+      text-decoration: none
+      display: block
+
+  .accordion
+    font-family: $heading
+    background: none
+    text-transform: uppercase
+    font-weight: bold
+    font-size: 4vh
+    color: $color2
+    cursor: pointer
+    padding: 18px
+    width: 100%
+    text-align: left
+    border: none
+    outline: none
+    transition: 0.4s
+
+#hours
+  background: $white
+  position: fixed
+  width: 100%
+  top: -109px
+  z-index: 50
+  padding: 50px 0
+  transition: .3s
+
+  &.active
+    top: 109px
+    transition: .3s
+
+  @include lg
+    display: none
+
+  .hours
+    .days
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      list-style: none
+
+      .h4.day
+        color: $color1
+
+#anfahrt
+  background: $white
+  position: fixed
+  width: 100%
+  top: -400px
+  z-index: 50
+  padding: 50px 0
+  transition: .3s
+
+  &.active
+    top: 109px
+    transition: .3s
+
+  @include lg
+    display: none
+
+  .drive
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+    a
+      display: block
+      text-decoration: none
+      color: $color1

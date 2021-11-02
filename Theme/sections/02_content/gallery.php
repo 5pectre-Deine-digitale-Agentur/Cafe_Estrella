@@ -1,14 +1,16 @@
-<?php
-$images = get_sub_field('gallery');
-$size = 'full'; // (thumbnail, medium, large, full or custom size)
-if( $images ): ?>
+<?php if( have_rows('selection') ):
+  $slide_count = 0; ?>
 
   <section id="gallery">
-    <?php foreach( $images as $image ): ?>
+    <?php while ( have_rows('selection') ) : the_row();?>
         <div class="image__container">
-          <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+          <div class=".content__container">
+            <img src="<?php echo esc_url(get_sub_field('image')['url']); ?>" alt="<?php echo esc_attr(get_sub_field('image')['alt']); ?>">
+            <h3 class="h3"><?php echo the_sub_field('title'); ?></h3>
+            <span class="subtitle"><?php echo the_sub_field('subtitle'); ?></span>
+          </div>
         </div>
-    <?php endforeach; ?>
+    <?php endwhile; ?>
   </section>
 
 <?php endif; ?>

@@ -18,7 +18,7 @@
         <?php if( have_rows('hours') ): ?>
           <?php while( have_rows('hours') ): the_row(); ?>
 
-          <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+          <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
             <div class="hours">
               <div class="background" style="background: url(<?php echo the_sub_field('background'); ?>); background-position: center; background-size: cover;">
               </div>

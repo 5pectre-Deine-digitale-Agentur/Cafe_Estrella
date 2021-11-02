@@ -1,33 +1,29 @@
-<?php if( have_rows('slider') ):
-  $slide_count = 0; ?>
-  <div class="splide" id="slider">
+
+  <div class="splide testimonials" id="slider" style="background:url('<?php echo the_sub_field('background'); ?>'); background-size: cover; background-position: center;">
   	<div class="splide__track">
   		<div class="splide__list">
-        <?php while ( have_rows('slider') ) : the_row();
-          $slide_image = get_sub_field('image');
-          $slide_title = get_sub_field('title');
-          $slide_text = get_sub_field('text'); ?>
+        <?php if( have_rows('testimonial') ):
+          $slide_count = 0; ?>
+        <?php while ( have_rows('testimonial') ) : the_row(); ?>
 
     			<div class="splide__slide slide-<?php echo $slide_count; $slide_count++; ?>">
-            <div class="background__image">
-              <img src="<?php echo esc_url($slide_image['url']); ?>" alt="<?php echo esc_attr($slide_image['alt']); ?>">
-            </div>
             <div class="slide__content">
-              <h1><?php echo $slide_title ?></h1>
-              <p><?php echo $slide_text ?></p>
+              <span class="h3"><?php echo the_sub_field('oppinion'); ?></span>
+              <h4 class="h4"><?php echo the_sub_field('kunde'); ?></h4>
             </div>
           </div>
 
         <?php endwhile; ?>
+        <?php endif; ?>
   		</div>
   	</div>
   </div>
-<?php endif; ?>
+
 
 <script type="text/javascript">
   // Splide Dokumentation unter https://splidejs.com/category/users-guide/
   document.addEventListener( 'DOMContentLoaded', function () {
-    var elms = document.getElementsByClassName( 'splide' );
+    var elms = document.getElementsByClassName( 'testimonials' );
     for ( var i = 0, len = elms.length; i < len; i++ ) {
     	new Splide( elms[ i ], {
         'type': 'loop',

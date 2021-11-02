@@ -9,7 +9,7 @@ if($post_query->have_posts() ) :
 	while($post_query->have_posts() ) :
 		$post_query->the_post(); ?>
 
-		<div name="post-<?php the_ID(); ?>" class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12" id="post">
+		<div name="post-<?php the_ID(); ?>" class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12" id="post">
       <div class="image__wrapper">
         <?php if ( has_post_thumbnail()) : ?>
           <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
